@@ -9,6 +9,7 @@
       "command(du)",
       "command(echo)",
       "command(find)",
+      "command(gh repo view)",
       "command(grep)",
       "command(head)",
       "command(jq)",

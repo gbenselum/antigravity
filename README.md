@@ -13,7 +13,7 @@ Adding commands to `globalPermissionGrants.allow` allows the agent to execute th
 
 ## Included Safe Commands
 
-The policy approves the following 21 commands using prefix matching (`command(<name>)`):
+The policy approves the following 22 commands using prefix matching (`command(<name>)`):
 
 | Command | Category | Purpose |
 | :--- | :--- | :--- |
@@ -25,6 +25,7 @@ The policy approves the following 21 commands using prefix matching (`command(<n
 | `du` | Disk Usage | Check file and folder sizes |
 | `echo` | Output | Output strings or environment variables |
 | `find` | File Search | Search files and directories by name/attributes |
+| `gh repo view` | GitHub CLI | View repository details, README, and status |
 | `grep` | Text Search | Search regular expressions in files |
 | `head` | File Inspection | View first lines of a file |
 | `jq` | Data Processing | Parse and query JSON structures |
@@ -43,6 +44,7 @@ The policy approves the following 21 commands using prefix matching (`command(<n
 
 In Antigravity, rules specified as `command(<prefix>)` match commands beginning with that token. For example:
 - `command(cat)` matches `cat README.md`, `cat file1 file2`, etc.
+- `command(gh repo view)` matches `gh repo view`, `gh repo view owner/repo`, etc.
 - `command(grep)` matches `grep -rn "pattern" .`
 - `command(rg)` matches `rg -i "term"`
 
@@ -76,6 +78,7 @@ Merge the `globalPermissionGrants` block into your `~/.gemini/config/config.json
         "command(du)",
         "command(echo)",
         "command(find)",
+        "command(gh repo view)",
         "command(grep)",
         "command(head)",
         "command(jq)",
