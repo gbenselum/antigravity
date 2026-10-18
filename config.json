@@ -1,0 +1,33 @@
+{
+  "userSettings": {
+    "globalPermissionGrants": {
+      "allow": [
+        "command(cat)",
+        "command(cd)",
+        "command(cut)",
+        "command(date)",
+        "command(diff)",
+        "command(du)",
+        "command(echo)",
+        "command(find)",
+        "command(grep)",
+        "command(head)",
+        "command(jq)",
+        "command(ls)",
+        "command(ps)",
+        "command(pwd)",
+        "command(rg)",
+        "command(sort)",
+        "command(tail)",
+        "command(uname)",
+        "command(wc)",
+        "command(which)",
+        "command(whoami)"
+      ],
+      "ask": [],
+      "deny": []
+    },
+    "permissionGrantsV2Migrated": true,
+    "sandboxEnabledAtV2Migration": true
+  }
+}
