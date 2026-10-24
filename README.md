@@ -4,12 +4,13 @@ This repository contains the global permission configuration policy for [Google 
 
 ## Overview
 
-By default, Antigravity prompts the user for approval or confines shell commands to sandbox environments depending on the execution preset. 
+By default, Antigravity prompts the user for approval or confines shell commands to sandbox environments depending on the execution preset.
 
 Antigravity evaluates sensitive agent actions across three prioritized lists:
 $$\text{Deny} > \text{Ask} > \text{Allow}$$
 
-Adding commands to `globalPermissionGrants.allow` allows the agent to execute them automatically without blocking for manual confirmation.
+- **Safe Commands Policy (`globalPermissionGrants.allow`)**: Allows specific verified commands to run automatically without blocking for manual confirmation regardless of execution preset.
+- **Autonomous Mode (`agentMode: auto`)**: Operates the agent autonomously, auto-approving file edits and safe sandboxed actions without asking for step-by-step confirmation.
 
 ## Included Safe Commands
 
@@ -55,7 +56,7 @@ If you wish to restrict specific subcommands or unsafe arguments (e.g. `rm -rf`)
 
 ### Method 1: Using the installation script
 
-Run the included installation script to safely merge this policy into your local `~/.gemini/config/config.json`:
+Run the included installation script to safely apply the safe commands policy to `~/.gemini/config/config.json` and enable `agentMode: "auto"` in `~/.gemini/antigravity-cli/settings.json`:
 
 ```bash
 chmod +x install.sh
@@ -64,10 +65,12 @@ chmod +x install.sh
 
 ### Method 2: Manual Configuration
 
+#### 1. Safe Commands Policy
 Merge the `globalPermissionGrants` block into your `~/.gemini/config/config.json` under `userSettings`:
 
 ```json
 {
+  "agentMode": "auto",
   "userSettings": {
     "globalPermissionGrants": {
       "allow": [
@@ -102,10 +105,25 @@ Merge the `globalPermissionGrants` block into your `~/.gemini/config/config.json
 }
 ```
 
+#### 2. Autonomous Mode (`agentMode: auto`)
+To run Antigravity with minimal human-in-the-loop confirmation prompts, set `"agentMode": "auto"` in `~/.gemini/antigravity-cli/settings.json`:
+
+```json
+{
+  "agentMode": "auto"
+}
+```
+
+Or start a session with the CLI flag:
+```bash
+agy --mode auto
+```
+
 ### Method 3: Interactive TUI
 
-In any active Antigravity CLI session, you can open the Permissions Manager TUI by running:
+In any active Antigravity CLI session, you can open the Permissions Manager or Settings TUI by running:
 
 ```text
 /permissions
+/config
 ```
