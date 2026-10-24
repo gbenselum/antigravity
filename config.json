@@ -15,6 +15,7 @@
         "command(head)",
         "command(jq)",
         "command(ls)",
+        "command(omarchy)",
         "command(ps)",
         "command(pwd)",
         "command(rg)",

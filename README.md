@@ -13,7 +13,7 @@ Adding commands to `globalPermissionGrants.allow` allows the agent to execute th
 
 ## Included Safe Commands
 
-The policy approves the following 22 commands using prefix matching (`command(<name>)`):
+The policy approves the following 23 commands using prefix matching (`command(<name>)`):
 
 | Command | Category | Purpose |
 | :--- | :--- | :--- |
@@ -30,6 +30,7 @@ The policy approves the following 22 commands using prefix matching (`command(<n
 | `head` | File Inspection | View first lines of a file |
 | `jq` | Data Processing | Parse and query JSON structures |
 | `ls` | Directory Listing | List files and directories |
+| `omarchy` | Desktop & System | Execute Omarchy desktop system and utility commands |
 | `ps` | Process Info | Inspect running system processes |
 | `pwd` | Navigation | Print current working directory |
 | `rg` | Text Search | Fast regex code search (ripgrep) |
@@ -83,6 +84,7 @@ Merge the `globalPermissionGrants` block into your `~/.gemini/config/config.json
         "command(head)",
         "command(jq)",
         "command(ls)",
+        "command(omarchy)",
         "command(ps)",
         "command(pwd)",
         "command(rg)",
